@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Your Fleet</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="placement-page">
+
+    <header>
+        <h1>Battleships</h1>
+    </header>
+
+    <main>
+
+        <section id="placement-container">
+
+            <div class="placement-info">
+                <h2>Place Your Fleet</h2>
+
+                <p>
+                    Current Ship:
+                    <span id="current-ship">Carrier (5)</span>
+                </p>
+
+                <p>
+                    Direction:
+                    <span id="direction">Horizontal</span>
+                </p>
+
+                <p>
+                    Ships Placed:
+                    <span id="ship-count">0 / 5</span>
+                </p>
+            </div>
+
+            <div class="board-container">
+
+                <table id="player-board">
+
+                    <tbody>
+
+                        <!-- Row 1 -->
+                        <tr>
+                            <td data-row="0" data-col="0"></td>
+                            <td data-row="0" data-col="1"></td>
+                            <td data-row="0" data-col="2"></td>
+                            <td data-row="0" data-col="3"></td>
+                            <td data-row="0" data-col="4"></td>
+                            <td data-row="0" data-col="5"></td>
+                            <td data-row="0" data-col="6"></td>
+                            <td data-row="0" data-col="7"></td>
+                            <td data-row="0" data-col="8"></td>
+                            <td data-row="0" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr>
+                            <td data-row="1" data-col="0"></td>
+                            <td data-row="1" data-col="1"></td>
+                            <td data-row="1" data-col="2"></td>
+                            <td data-row="1" data-col="3"></td>
+                            <td data-row="1" data-col="4"></td>
+                            <td data-row="1" data-col="5"></td>
+                            <td data-row="1" data-col="6"></td>
+                            <td data-row="1" data-col="7"></td>
+                            <td data-row="1" data-col="8"></td>
+                            <td data-row="1" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr>
+                            <td data-row="2" data-col="0"></td>
+                            <td data-row="2" data-col="1"></td>
+                            <td data-row="2" data-col="2"></td>
+                            <td data-row="2" data-col="3"></td>
+                            <td data-row="2" data-col="4"></td>
+                            <td data-row="2" data-col="5"></td>
+                            <td data-row="2" data-col="6"></td>
+                            <td data-row="2" data-col="7"></td>
+                            <td data-row="2" data-col="8"></td>
+                            <td data-row="2" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 4 -->
+                        <tr>
+                            <td data-row="3" data-col="0"></td>
+                            <td data-row="3" data-col="1"></td>
+                            <td data-row="3" data-col="2"></td>
+                            <td data-row="3" data-col="3"></td>
+                            <td data-row="3" data-col="4"></td>
+                            <td data-row="3" data-col="5"></td>
+                            <td data-row="3" data-col="6"></td>
+                            <td data-row="3" data-col="7"></td>
+                            <td data-row="3" data-col="8"></td>
+                            <td data-row="3" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 5 -->
+                        <tr>
+                            <td data-row="4" data-col="0"></td>
+                            <td data-row="4" data-col="1"></td>
+                            <td data-row="4" data-col="2"></td>
+                            <td data-row="4" data-col="3"></td>
+                            <td data-row="4" data-col="4"></td>
+                            <td data-row="4" data-col="5"></td>
+                            <td data-row="4" data-col="6"></td>
+                            <td data-row="4" data-col="7"></td>
+                            <td data-row="4" data-col="8"></td>
+                            <td data-row="4" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 6 -->
+                        <tr>
+                            <td data-row="5" data-col="0"></td>
+                            <td data-row="5" data-col="1"></td>
+                            <td data-row="5" data-col="2"></td>
+                            <td data-row="5" data-col="3"></td>
+                            <td data-row="5" data-col="4"></td>
+                            <td data-row="5" data-col="5"></td>
+                            <td data-row="5" data-col="6"></td>
+                            <td data-row="5" data-col="7"></td>
+                            <td data-row="5" data-col="8"></td>
+                            <td data-row="5" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 7 -->
+                        <tr>
+                            <td data-row="6" data-col="0"></td>
+                            <td data-row="6" data-col="1"></td>
+                            <td data-row="6" data-col="2"></td>
+                            <td data-row="6" data-col="3"></td>
+                            <td data-row="6" data-col="4"></td>
+                            <td data-row="6" data-col="5"></td>
+                            <td data-row="6" data-col="6"></td>
+                            <td data-row="6" data-col="7"></td>
+                            <td data-row="6" data-col="8"></td>
+                            <td data-row="6" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 8 -->
+                        <tr>
+                            <td data-row="7" data-col="0"></td>
+                            <td data-row="7" data-col="1"></td>
+                            <td data-row="7" data-col="2"></td>
+                            <td data-row="7" data-col="3"></td>
+                            <td data-row="7" data-col="4"></td>
+                            <td data-row="7" data-col="5"></td>
+                            <td data-row="7" data-col="6"></td>
+                            <td data-row="7" data-col="7"></td>
+                            <td data-row="7" data-col="8"></td>
+                            <td data-row="7" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 9 -->
+                            <td data-row="8" data-col="0"></td>
+                            <td data-row="8" data-col="1"></td>
+                            <td data-row="8" data-col="2"></td>
+                            <td data-row="8" data-col="3"></td>
+                            <td data-row="8" data-col="4"></td>
+                            <td data-row="8" data-col="5"></td>
+                            <td data-row="8" data-col="6"></td>
+                            <td data-row="8" data-col="7"></td>
+                            <td data-row="8" data-col="8"></td>
+                            <td data-row="8" data-col="9"></td>
+                        </tr>
+
+                        <!-- Row 10 -->
+                        <tr>
+                            <td data-row="9" data-col="0"></td>
+                            <td data-row="9" data-col="1"></td>
+                            <td data-row="9" data-col="2"></td>
+                            <td data-row="9" data-col="3"></td>
+                            <td data-row="9" data-col="4"></td>
+                            <td data-row="9" data-col="5"></td>
+                            <td data-row="9" data-col="6"></td>
+                            <td data-row="9" data-col="7"></td>
+                            <td data-row="9" data-col="8"></td>
+                            <td data-row="9" data-col="9"></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="controls">
+
+                <button id="rotate-btn">Rotate Ship</button>
+
+                <button id="random-btn">Random Placement</button>
+
+                <button id="start-btn" disabled>
+                    Start Battle
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
