@@ -6,6 +6,10 @@ const board = Array(BOARD_SIZE)
     .fill()
     .map(() => Array(BOARD_SIZE).fill(0));
 
+const enemyBoard = Array(10)
+    .fill()
+    .map(() => Array(10).fill(0));
+
 // Ships
 const ships = [
     { name: "Carrier", size: 5 },
@@ -18,7 +22,8 @@ const ships = [
 let currentShip = 0;
 let direction = "horizontal";
 
-// Elements
+
+
 const cells = document.querySelectorAll("#player-board td");
 const shipDisplay = document.getElementById("current-ship");
 const directionDisplay = document.getElementById("direction");
@@ -26,7 +31,7 @@ const shipCountDisplay = document.getElementById("ship-count");
 const rotateBtn = document.getElementById("rotate-btn");
 const startBtn = document.getElementById("start-btn");
 
-// Initial display
+
 updateInfo();
 
 // Rotate button
@@ -42,12 +47,12 @@ rotateBtn.addEventListener("click", () => {
         direction.slice(1);
 });
 
-// Cell clicks
+
 cells.forEach(cell => {
 
     cell.addEventListener("click", () => {
 
-        // All ships already placed
+        
         if (currentShip >= ships.length) {
             return;
         }
@@ -69,7 +74,7 @@ function placeShip(row, col) {
         return;
     }
 
-    // Place horizontally
+    
      if (direction === "horizontal") {
 
         for (let i = 0; i < ship.size; i++) {
@@ -96,8 +101,24 @@ function placeShip(row, col) {
     }
 }
 
-// Check placement validity
-function canPlaceShip(row, col, size) {
+function placeShipEnemy(row, col, size, direction) {
+
+    if (direction === "horizontal") {
+
+        for (let i = 0; i < size; i++) {
+            enemyBoard[row][col + i] = 1;
+        }
+
+    } else {
+
+        for (let i = 0; i < size; i++) {
+            enemyBoard[row + i][col] = 1;
+        }
+    }
+}
+
+// Check placement 
+function canPlaceShip(boardToCheck, row, col, size, direction) {
 
     if (direction === "horizontal") {
 
@@ -107,7 +128,7 @@ function canPlaceShip(row, col, size) {
 
         for (let i = 0; i < size; i++) {
 
-            if (board[row][col + i] !== 0) {
+            if (boardToCheck[row][col + i] !== 0) {
                 return false;
             }
         }
@@ -120,7 +141,7 @@ function canPlaceShip(row, col, size) {
 
         for (let i = 0; i < size; i++) {
 
-            if (board[row + i][col] !== 0) {
+            if (boardToCheck[row + i][col] !== 0) {
                 return false;
             }
         }
@@ -144,7 +165,7 @@ function drawBoard() {
     });
 }
 
-// Update information panel
+
 function updateInfo() {
 
     if (currentShip < ships.length) {
@@ -163,7 +184,43 @@ startBtn.addEventListener("click", () => {
     console.log("Board Data:");
     console.table(board);
 
-    // Later:
-    // localStorage.setItem("playerBoard", JSON.stringify(board));
-    // window.location.href = "battle.html";
 });
+
+function generateEnemyFleet() {
+
+    ships.forEach(ship => {
+
+        let placed = false;
+
+        while (!placed) {
+
+            const row = Math.floor(Math.random() * BOARD_SIZE);
+            const col = Math.floor(Math.random() * BOARD_SIZE);
+
+            const randomDirection =
+                Math.random() < 0.5
+                    ? "horizontal"
+                    : "vertical";
+
+            if (
+                canPlaceShip(
+                    enemyBoard,
+                    row,
+                    col,
+                    ship.size,
+                    randomDirection
+                )
+            ) {
+
+                placeShipEnemy(
+                    row,
+                    col,
+                    ship.size,
+                    randomDirection
+                );
+
+                placed = true;
+            }
+        }
+    });
+}

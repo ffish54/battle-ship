@@ -47,8 +47,6 @@ footer{
   background-blend-mode: lighten;
 }
 
-/* Placement Page */
-
 .placement-page {
     background-image: url("../images/title_screen.jpg");
     background-size: cover;
@@ -79,11 +77,11 @@ footer{
     margin: 20px 0;
 }
 
-#player-board {
+#player-board, #enemy-board {
     border-collapse: collapse;
 }
 
-#player-board td {
+#player-board td, #enemy-board td {
     width: 50px;
     height: 50px;
     border: 1px solid black;
@@ -91,7 +89,7 @@ footer{
     cursor: pointer;
 }
 
-#player-board td:hover {
+#player-board td:hover, #enemy-board td:hover {
     background-color: rgba(135, 206, 250, 0.9);
 }
 
@@ -106,8 +104,38 @@ footer{
     cursor: pointer;
 }
 
-#player-board td.ship {
+#player-board td.ship, #enemy-board td.ship {
     background-color: gray;
+}
+#player-board td.hit, #enemy-board td.hit {
+    background-color: red;
+}
+
+#player-board td.miss, #enemy-board td.miss {
+    background-color: white;
+}
+
+.battle-page {
+    background-image: url("../images/title_screen.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+}
+
+#battle-container {
+    padding-top: 150px;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#game-info {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 40px;
 }
 
 
@@ -159,7 +187,22 @@ footer{
         width: 100%;
     }
 
+    #battle-container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
 }
+
+#player-board td,
+#enemy-board td {
+    width: 28px;
+    height: 28px;
+}
+
+}
+
+
+
 
 @media screen and (min-width: 577px) and (max-width: 1024px) {
 
@@ -185,6 +228,16 @@ footer{
         width: 40px;
         height: 40px;
     }
+
+    #battle-container {
+    gap: 25px;
+}
+
+#player-board td,
+#enemy-board td {
+    width: 40px;
+    height: 40px;
+}
 }
 
 
@@ -199,4 +252,8 @@ footer{
         width: 100%;
         margin-bottom: 1rem;
     }
+
+    #battle-container {
+    gap: 75px;
+}
 }
