@@ -1,184 +1,170 @@
-const playerBoard = JSON.parse(
-    localStorage.getItem("playerBoard")
-);
+const playerBoard = JSON.parse(localStorage.getItem("playerBoard"));
 
-const enemyBoard = JSON.parse(
-    localStorage.getItem("enemyBoard")
-);
+const enemyBoard = JSON.parse(localStorage.getItem("enemyBoard"));
 
-const playerCells =
-    document.querySelectorAll("#player-board td");
+const playerCells = document.querySelectorAll("#player-board td");
 
-const enemyCells =
-    document.querySelectorAll("#enemy-board td");
+const enemyCells = document.querySelectorAll("#enemy-board td");
 
-const statusMessage = document.getElementById(
-    "status-message"
-);
+const statusMessage = document.getElementById("status-message");
 
 let playerTurn = true;
 
 function drawPlayerBoard() {
+  playerCells.forEach((cell) => {
+    const row = parseInt(cell.dataset.row);
+    const col = parseInt(cell.dataset.col);
 
-    playerCells.forEach(cell => {
-
-        const row = parseInt(cell.dataset.row);
-        const col = parseInt(cell.dataset.col);
-
-        if (playerBoard[row][col] === 1) {
-
-            cell.classList.add("ship");
-
-
-        }
-
-
-
-    });
-
+    if (playerBoard[row][col] === 1) {
+      cell.classList.add("ship");
+    }
+  });
 }
 
-enemyCells.forEach(cell => {
+enemyCells.forEach((cell) => {
+  cell.addEventListener("click", () => {
+    const row = parseInt(cell.dataset.row);
 
-    cell.addEventListener("click", () => {
+    const col = parseInt(cell.dataset.col);
 
-        const row = parseInt(cell.dataset.row);
-
-        const col = parseInt(cell.dataset.col);
-
-        attackEnemy(row, col);
-
-    });
-
+    attackEnemy(row, col);
+  });
 });
 
 function attackEnemy(row, col) {
+  if (!playerTurn) {
+    console.log("It's not your turn!");
+    return;
+  }
 
-     if (!playerTurn) {
-        console.log("It's not your turn!");
-        return;
-    }
+  if (enemyBoard[row][col] === 2 || enemyBoard[row][col] === 3) {
+    return;
+  }
 
-   
+  if (enemyBoard[row][col] === 1) {
+    enemyBoard[row][col] = 2;
 
-    if (
-        enemyBoard[row][col] === 2 ||
-        enemyBoard[row][col] === 3
-    ) {
-        return;
-    }
+    statusMessage.textContent = "Direct Hit!";
+  } else {
+    enemyBoard[row][col] = 3;
 
-    if (enemyBoard[row][col] === 1) {
+    statusMessage.textContent = "Miss!";
+  }
+  playerTurn = false;
 
-        enemyBoard[row][col] = 2;
-
-        statusMessage.textContent =
-            "Direct Hit!";
-
-    } else {
-
-        enemyBoard[row][col] = 3;
-
-        statusMessage.textContent =
-            "Miss!";
-
-    }
-     playerTurn = false;
-
-    drawEnemyBoard();
-    setTimeout(() => { computerAttack(); }, 500);
-
+  drawEnemyBoard();
+  checkWinner();
+  if (playerTurn !== false) {
+    setTimeout(() => {
+      computerAttack();
+    }, 500);
+  }
 }
 
 function drawEnemyBoard() {
+  enemyCells.forEach((cell) => {
+    const row = parseInt(cell.dataset.row);
 
-    enemyCells.forEach(cell => {
+    const col = parseInt(cell.dataset.col);
 
-        const row =
-            parseInt(cell.dataset.row);
+    cell.classList.remove("hit");
+    cell.classList.remove("miss");
 
-        const col =
-            parseInt(cell.dataset.col);
+    if (enemyBoard[row][col] === 2) {
+      cell.classList.add("hit");
+    }
 
-        cell.classList.remove("hit");
-        cell.classList.remove("miss");
-
-        if (enemyBoard[row][col] === 2) {
-
-            cell.classList.add("hit");
-
-        }
-
-        if (enemyBoard[row][col] === 3) {
-
-            cell.classList.add("miss");
-
-        }
-
-    });
-
+    if (enemyBoard[row][col] === 3) {
+      cell.classList.add("miss");
+    }
+  });
 }
 
 function computerAttack() {
+  let row;
+  let col;
 
-    let row;
-    let col;
+  do {
+    row = Math.floor(Math.random() * 10);
+    col = Math.floor(Math.random() * 10);
+  } while (playerBoard[row][col] === 2 || playerBoard[row][col] === 3);
 
-    do {
+  if (playerBoard[row][col] === 1) {
+    playerBoard[row][col] = 2;
 
-        row = Math.floor(Math.random() * 10);
-        col = Math.floor(Math.random() * 10);
+    statusMessage.textContent = `Enemy hit your ship at (${row}, ${col})`;
+  } else {
+    playerBoard[row][col] = 3;
 
-    } while (
-        playerBoard[row][col] === 2 ||
-        playerBoard[row][col] === 3
-    );
+    statusMessage.textContent = `Enemy missed at (${row}, ${col})`;
+  }
 
-    if (playerBoard[row][col] === 1) {
+  drawPlayerBoard();
+  checkWinner();
 
-        playerBoard[row][col] = 2;
-
-        statusMessage.textContent =
-            `Enemy hit your ship at (${row}, ${col})`;
-
-    } else {
-
-        playerBoard[row][col] = 3;
-
-        statusMessage.textContent =
-            `Enemy missed at (${row}, ${col})`;
-    }
-
-    drawPlayerBoard();
-
-    playerTurn = true;
-    statusMessage.textContent =
-        "Your turn!";
+  playerTurn = true;
+  statusMessage.textContent = "Your turn!";
 }
 function drawPlayerBoard() {
+  playerCells.forEach((cell) => {
+    const row = parseInt(cell.dataset.row);
+    const col = parseInt(cell.dataset.col);
 
-    playerCells.forEach(cell => {
+    cell.classList.remove("ship");
+    cell.classList.remove("hit");
+    cell.classList.remove("miss");
 
-        const row = parseInt(cell.dataset.row);
-        const col = parseInt(cell.dataset.col);
+    if (playerBoard[row][col] === 1) {
+      cell.classList.add("ship");
+    }
 
-        cell.classList.remove("ship");
-        cell.classList.remove("hit");
-        cell.classList.remove("miss");
+    if (playerBoard[row][col] === 2) {
+      cell.classList.add("hit");
+    }
 
-        if (playerBoard[row][col] === 1) {
-            cell.classList.add("ship");
-        }
+    if (playerBoard[row][col] === 3) {
+      cell.classList.add("miss");
+    }
+  });
+}
 
-        if (playerBoard[row][col] === 2) {
-            cell.classList.add("hit");
-        }
+function checkWinner() {
+  let playerShipsLeft = 0;
+  let enemyShipsLeft = 0;
 
-        if (playerBoard[row][col] === 3) {
-            cell.classList.add("miss");
-        }
+  for (let row = 0; row < 10; row++) {
+    for (let col = 0; col < 10; col++) {
+      if (playerBoard[row][col] === 1) {
+        playerShipsLeft++;
+      }
+    }
+  }
 
-    });
+  for (let row = 0; row < 10; row++) {
+    for (let col = 0; col < 10; col++) {
+      if (enemyBoard[row][col] === 1) {
+        enemyShipsLeft++;
+      }
+    }
+  }
+
+  if (enemyShipsLeft === 0) {
+    endGame("Player");
+  }
+
+  if (playerShipsLeft === 0) {
+    endGame("Computer");
+  }
+}
+
+function endGame(winner) {
+  playerTurn = false;
+
+  if (winner === "Player") {
+    statusMessage.textContent = "Victory! You destroyed all enemy ships.";
+  } else {
+    statusMessage.textContent = "Defeat! The enemy destroyed all your ships.";
+  }
 }
 
 drawPlayerBoard();
