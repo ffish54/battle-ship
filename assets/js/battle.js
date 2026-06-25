@@ -50,11 +50,11 @@ function attackEnemy(row, col) {
 
     statusMessage.textContent = "Miss!";
   }
-  playerTurn = false;
 
   drawEnemyBoard();
   checkWinner();
   if (playerTurn !== false) {
+    playerTurn = false;
     setTimeout(() => {
       computerAttack();
     }, 500);
