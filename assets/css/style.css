@@ -93,15 +93,16 @@ footer{
     background-color: rgba(135, 206, 250, 0.9);
 }
 
-.controls {
+.placement-controls {
     display: flex;
     gap: 15px;
     margin-top: 20px;
 }
 
-.controls button {
+.placement-controls button {
     padding: 10px 20px;
     cursor: pointer;
+    background-color: #0D6EFD; 
 }
 
 #player-board td.ship, #enemy-board td.ship {
