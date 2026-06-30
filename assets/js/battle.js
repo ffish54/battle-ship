@@ -1,6 +1,55 @@
-const playerBoard = JSON.parse(localStorage.getItem("playerBoard"));
+const gameMode = localStorage.getItem("gameMode");
+const currentPlayer = localStorage.getItem("currentPlayer");
 
-const enemyBoard = JSON.parse(localStorage.getItem("enemyBoard"));
+let playerBoard;
+let enemyBoard;
+
+console.log("Game Mode:", gameMode);
+console.log("Current Player:", currentPlayer);
+
+console.log("Player Board:");
+console.table(playerBoard);
+
+console.log("Enemy Board:");
+console.table(enemyBoard);
+
+if (gameMode === "1p") {
+
+    playerBoard = JSON.parse(
+        localStorage.getItem("playerBoard")
+    );
+
+    enemyBoard = JSON.parse(
+        localStorage.getItem("enemyBoard")
+    );
+
+}
+
+if (gameMode === "2p") {
+
+    if (currentPlayer === "1") {
+
+        playerBoard = JSON.parse(
+            localStorage.getItem("player1Board")
+        );
+
+        enemyBoard = JSON.parse(
+            localStorage.getItem("player2Board")
+        );
+
+    } else {
+
+        playerBoard = JSON.parse(
+            localStorage.getItem("player2Board")
+        );
+
+        enemyBoard = JSON.parse(
+            localStorage.getItem("player1Board")
+        );
+
+    }
+
+}
 
 const playerCells = document.querySelectorAll("#player-board td");
 
@@ -55,9 +104,22 @@ function attackEnemy(row, col) {
   checkWinner();
   if (playerTurn !== false) {
     playerTurn = false;
+    if (gameMode === "1p") {
+
+    playerTurn = false;
+
     setTimeout(() => {
-      computerAttack();
+
+        computerAttack();
+
     }, 500);
+  }
+    else {
+
+    switchPlayer();
+}
+
+
   }
 }
 
@@ -69,6 +131,7 @@ function drawEnemyBoard() {
 
     cell.classList.remove("hit");
     cell.classList.remove("miss");
+    cell.classList.remove("ship");
 
     if (enemyBoard[row][col] === 2) {
       cell.classList.add("hit");
@@ -153,7 +216,16 @@ function checkWinner() {
   }
 
   if (playerShipsLeft === 0) {
+    if (gameMode === "1p") {
+
     endGame("Computer");
+
+}
+else {
+
+    endGame("Player " + currentPlayer);
+
+}
   }
 }
 
@@ -162,9 +234,68 @@ function endGame(winner) {
 
   if (winner === "Player") {
     statusMessage.textContent = "Victory! You destroyed all enemy ships.";
-  } else {
+  } else if (winner === "Computer") {
     statusMessage.textContent = "Defeat! The enemy destroyed all your ships.";
   }
+    else {
+
+        statusMessage.textContent =
+            winner + " Wins!";
+
+    }
+
+
+}
+
+function switchPlayer() {
+
+    // Save both boards
+
+    if (currentPlayer === "1") {
+
+        localStorage.setItem(
+            "player1Board",
+            JSON.stringify(playerBoard)
+        );
+
+        localStorage.setItem(
+            "player2Board",
+            JSON.stringify(enemyBoard)
+        );
+
+        localStorage.setItem(
+            "currentPlayer",
+            "2"
+        );
+
+    } else {
+
+        localStorage.setItem(
+            "player2Board",
+            JSON.stringify(playerBoard)
+        );
+
+        localStorage.setItem(
+            "player1Board",
+            JSON.stringify(enemyBoard)
+        );
+
+        localStorage.setItem(
+            "currentPlayer",
+            "1"
+        );
+
+    }
+
+    localStorage.setItem(
+        "phase",
+        "battle"
+    );
+
+    window.location.href =
+        "swap.html";
+
 }
 
 drawPlayerBoard();
+drawEnemyBoard();

@@ -10,6 +10,12 @@ const enemyBoard = Array(10)
   .fill()
   .map(() => Array(10).fill(0));
 
+const gameMode =
+    localStorage.getItem("gameMode");
+
+const currentPlayer =
+    localStorage.getItem("currentPlayer");
+
 // Ships
 const ships = [
   { name: "Carrier", size: 5 },
@@ -166,11 +172,85 @@ function generateEnemyFleet() {
 }
 
 startBtn.addEventListener("click", () => {
-  localStorage.setItem("playerBoard", JSON.stringify(board));
 
-  generateEnemyFleet();
+    // SINGLE PLAYER
+    if (gameMode === "1p") {
 
-  localStorage.setItem("enemyBoard", JSON.stringify(enemyBoard));
+        localStorage.setItem(
+            "playerBoard",
+            JSON.stringify(board)
+        );
 
-  window.location.href = "battle.html";
+        generateEnemyFleet();
+
+        localStorage.setItem(
+            "enemyBoard",
+            JSON.stringify(enemyBoard)
+        );
+
+        window.location.href =
+            "battle.html";
+
+        return;
+    }
+
+    // TWO PLAYER - PLAYER 1
+    if (
+        gameMode === "2p" &&
+        currentPlayer === "1"
+    ) {
+
+        localStorage.setItem(
+            "player1Board",
+            JSON.stringify(board)
+        );
+
+        localStorage.setItem(
+            "currentPlayer",
+            "2"
+        );
+
+        localStorage.setItem(
+          "phase",
+          "placement"
+        );
+
+        window.location.href =
+            "swap.html";
+
+        return;
+    }
+
+    // TWO PLAYER - PLAYER 2
+    if (
+        gameMode === "2p" &&
+        currentPlayer === "2"
+    ) {
+
+        localStorage.setItem(
+            "player2Board",
+            JSON.stringify(board)
+        );
+
+        localStorage.setItem(
+            "currentPlayer",
+            "1"
+        );
+
+        localStorage.setItem(
+           "phase",
+           "battle"
+          );
+
+          console.log("Player 1 Board:");
+console.table(JSON.parse(localStorage.getItem("player1Board")));
+
+console.log("Player 2 Board:");
+console.table(board);
+
+        window.location.href =
+            "swap.html";
+
+    }
+
 });
