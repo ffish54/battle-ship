@@ -153,3 +153,13 @@ On tablet devices, the placement screen keeps the same overall layout while scal
 The mobile version of the placement screen is adjusted for the limited screen space. The buttons arestacked vertically below the. The grid is reduced in size while remaining fully usable on a touch screen. The page becomes vertically scrollable if required, ensuring all controls remain accessible without making the board too small to use.
 
 
+<img width="1448" height="1086" alt="3891C936-4988-4034-AC26-ED33F74EABD9" src="https://github.com/user-attachments/assets/f2766d1a-34ad-4548-bb90-9ccc4cb6989d" />
+
+The swap page is designed to prevent the next player from seeing the previous player’s board during a two-player game. At the top of the page is the Battleships header used on other pages. In the centre of the page is a large heading displaying whose turn it is, for example, “Player 1’s Turn” or “Player 2’s Turn”. Beneath this is a short message instructing the players to pass the device to the next player, followed by another reminder to make sure the other player is not looking at the screen before continuing. At the bottom of the page is a Continue button. When pressed, this button will load the next placement page for player 2 then will switch between each players battle page. this page is the same on each platform but the button is slightly bigger on smaller screens 
+
+<img width="1448" height="1086" alt="C94201AC-DA72-4402-BD9F-A34A7B1E1390" src="https://github.com/user-attachments/assets/69f7e1fb-0d57-408d-b777-5f6ae55b2dc9" />
+
+the battle page is made up of two grids the current players grid (left) and the enemy's grid (right) with lables above each grid on the players grid their ships are displayed along with any hits and misses by the enemy and the oposite grid only contains any hits and misses, below is some text that displays instructions and says if the attack was a hit or miss.
+
+
+
