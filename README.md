@@ -132,7 +132,7 @@ wireframes are attatched to this read me file
 <img width="1448" height="1086" alt="wireframe_ship" src="https://github.com/user-attachments/assets/656a746d-8304-4a64-9754-3647e88566b8" />
 
 
-The desktop version of the title screen is designed to immediately introduce the user to the game. At the top of the page is a header containing the Battleships logo and title, providing a clear introduction for the website. Beneath the header is text reading "Naval Warfare Begins" along with 3 buttons 1 player, 2 player and rules the function of these buttons are clear to the user. the first button starts a 1 player game, the second button starts a two player game and the third shows the rules of the game. 
+The desktop version of the title screen is designed to immediately introduce the user to the game. At the top of the page is a header containing the Battleships logo and title, providing a clear introduction for the website. Beneath the header is text reading "Naval Warfare Begins" along with 3 buttons 1 player and 2 player the function of these buttons are clear to the user. the first button starts a 1 player game, the second button starts a two player game and the third shows the rules of the game. 
 
 <img width="1002" height="1086" alt="wireframe_ship_tablet" src="https://github.com/user-attachments/assets/b014b023-f43e-429a-a50f-4b5dcdd8d63a" />
 
@@ -141,3 +141,15 @@ On tablet devices, the overall structure remains similar to the desktop layout, 
 <img width="863" height="1823" alt="wireframe_ship_mobile" src="https://github.com/user-attachments/assets/13d5ff57-ad1a-4f97-8017-cb50846468eb" />
 
 The mobile version of the title screen is redesigned to make better use of the limited screen space available. the buttons are made to fit the screen fully 
+
+
+<img width="1320" height="1192" alt="placement_desktop" src="https://github.com/user-attachments/assets/d5964bae-0abd-4464-aeda-145dc1c2701b" />
+
+The desktop version of the placement screen will allow the player to arrange their fleet of ships before the battle begins. At the top of the page is a header containing the Battleships logo and title, providing a consistent design throughout the website. Beneath the header is information displaying the current ship to be placed, the ship's size, the current placement direction (horizontal or vertical), and the number of ships already placed. The centre of the page contains a 10 × 10 grid where the player positions each ship by selecting squares on the board. At the bottom of the page are controls that allow the player to rotate the ship between horizontal and vertical placement or continue to the battle once all ships have been placed. In the single-player mode, the enemy fleet is generated automatically when the player starts the battle, while in two-player mode the next player is prompted to take their turn placing ships.
+
+<img width="1402" height="1122" alt="placement_mobile" src="https://github.com/user-attachments/assets/e308474d-884c-44d9-af29-ed8f5181fc0e" />
+
+On tablet devices, the placement screen keeps the same overall layout while scaling the interface to suit the smaller display. The information section remains above the board, while the grid is slightly reduced in size to fit comfortably on the screen. The control buttons remain below the grid and are resized to make them easy to press using touch controls without changing their functionality.
+The mobile version of the placement screen is adjusted for the limited screen space. The buttons arestacked vertically below the. The grid is reduced in size while remaining fully usable on a touch screen. The page becomes vertically scrollable if required, ensuring all controls remain accessible without making the board too small to use.
+
+
