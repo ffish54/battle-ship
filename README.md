@@ -160,6 +160,17 @@ The swap page is designed to prevent the next player from seeing the previous pl
 <img width="1448" height="1086" alt="C94201AC-DA72-4402-BD9F-A34A7B1E1390" src="https://github.com/user-attachments/assets/69f7e1fb-0d57-408d-b777-5f6ae55b2dc9" />
 
 the battle page is made up of two grids the current players grid (left) and the enemy's grid (right) with lables above each grid on the players grid their ships are displayed along with any hits and misses by the enemy and the oposite grid only contains any hits and misses, below is some text that displays instructions and says if the attack was a hit or miss.
+At the bottom of the page is a Battle Status section. This area displays messages informing the player about the current state of the game, such as "Select a square on the enemy grid to attack", "Direct Hit!", "Miss!", or announcing the winner when all of one player's ships have been destroyed
+
+### Background
+<img width="6000" height="4000" alt="image" src="https://github.com/user-attachments/assets/66b8fb4b-eaff-4835-bff0-f73a86c0ba5f" />
+this image is used as the background it is from www.magnific.com
+Designed by Magnific
+
+### Colours
+
+
+
 
 
 
