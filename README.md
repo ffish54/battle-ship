@@ -169,6 +169,19 @@ Designed by Magnific
 
 ### Colours
 
+<img width="26" height="26" alt="image" src="https://github.com/user-attachments/assets/a9d348dc-b1a8-4d9f-a8fa-02980ff81a55" />
+hex #87CEFA is used for clear water in the grid 
+
+<img width="23" height="23" alt="image" src="https://github.com/user-attachments/assets/20467b1e-2bde-4b03-9b1e-6a58d0e2dfbd" />
+hex #808080 is used for ships that occupy a square on the grid  
+
+<img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/c75cf5eb-69ff-4308-8cc6-9d6ce7eec1e0" />
+hex #FFFFFF is used for a miss on the grid 
+
+<img width="24" height="26" alt="image" src="https://github.com/user-attachments/assets/0dc08a83-76fc-4ba9-a39f-0d712b612f4b" />
+hex #FF0000 is used for a ship hit on the grid 
+
+
 
 
 
