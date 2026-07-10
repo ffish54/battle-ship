@@ -181,6 +181,9 @@ hex #FFFFFF is used for a miss on the grid
 <img width="24" height="26" alt="image" src="https://github.com/user-attachments/assets/0dc08a83-76fc-4ba9-a39f-0d712b612f4b" />
 hex #FF0000 is used for a ship hit on the grid 
 
+## Development
+
+The first page I developed was the title screen, with navigation options for either the one-player or two-player mode. next i started on the the ship placement page. to do this i created a 10x10 grid with in the javascript through a table. then i developed the functions to allow players to place ships on the grid, rotate them between horizontal and vertical positions, validate ship placements, and prevent ships from overlapping or extending beyond the boundaries of the board.
 
 
 
