@@ -1,7 +1,7 @@
 
 const onePlayerBtn = document.getElementById("one-player-btn");
 const twoPlayerBtn = document.getElementById("two-player-btn");
-const rulesBtn = document.getElementById("rules-btn");
+
 
 onePlayerBtn.addEventListener("click", () => {
 
@@ -29,8 +29,3 @@ twoPlayerBtn.addEventListener("click", () => {
 });
 
 
-rulesBtn.addEventListener("click", () => {
-
-    window.location.href = "rules.html";
-
-});

@@ -62,6 +62,8 @@ cells.forEach((cell) => {
 // Place ship function
 function placeShip(row, col) {
   const ship = ships[currentShip];
+  startBtn.disabled = true;
+
 
   if (!canPlaceShip(board, row, col, ship.size, direction)) {
     alert("Invalid placement!");
@@ -131,7 +133,7 @@ function canPlaceShip(boardToCheck, row, col, size, direction) {
 
 // Draw ships on board
 function drawBoard() {
-  console.log("Drawing board...");
+
 
   cells.forEach((cell) => {
     const row = cell.parentElement.rowIndex;
