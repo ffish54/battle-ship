@@ -129,16 +129,19 @@ The overall design aims to feel similar to a naval command centre, with clear na
 ### Wireframes 
 wireframes are attatched to this read me file
 
-<img width="1448" height="1086" alt="wireframe_ship" src="https://github.com/user-attachments/assets/656a746d-8304-4a64-9754-3647e88566b8" />
+<img width="1087" height="700" alt="wireframe_ship" src="https://github.com/user-attachments/assets/9316c1a8-0be0-464a-9612-6db0c4c6a2db" />
+
 
 
 The desktop version of the title screen is designed to immediately introduce the user to the game. At the top of the page is a header containing the Battleships logo and title, providing a clear introduction for the website. Beneath the header is text reading "Naval Warfare Begins" along with 3 buttons 1 player and 2 player the function of these buttons are clear to the user. the first button starts a 1 player game, the second button starts a two player game and the third shows the rules of the game. 
 
-<img width="1002" height="1086" alt="wireframe_ship_tablet" src="https://github.com/user-attachments/assets/b014b023-f43e-429a-a50f-4b5dcdd8d63a" />
+<img width="1002" height="1086" alt="wireframe_ship_tablet" src="https://github.com/user-attachments/assets/d346c288-a16d-4ddf-b9d3-c7ae5a5a36f6" />
+
 
 On tablet devices, the overall structure remains similar to the desktop layout, The heading and descriptive text remain centered but are scaled appropriately for the smaller screen size.
 
-<img width="863" height="1823" alt="wireframe_ship_mobile" src="https://github.com/user-attachments/assets/13d5ff57-ad1a-4f97-8017-cb50846468eb" />
+<img width="863" height="1823" alt="wireframe_ship_mobile" src="https://github.com/user-attachments/assets/339689d4-7719-456c-99c3-3851e9285943" />
+
 
 The mobile version of the title screen is redesigned to make better use of the limited screen space available. the buttons are made to fit the screen fully 
 
