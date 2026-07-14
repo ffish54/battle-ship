@@ -166,22 +166,28 @@ the battle page is made up of two grids the current players grid (left) and the 
 At the bottom of the page is a Battle Status section. This area displays messages informing the player about the current state of the game, such as "Select a square on the enemy grid to attack", "Direct Hit!", "Miss!", or announcing the winner when all of one player's ships have been destroyed
 
 ### Background
+
 <img width="6000" height="4000" alt="image" src="https://github.com/user-attachments/assets/66b8fb4b-eaff-4835-bff0-f73a86c0ba5f" />
+
 this image is used as the background it is from www.magnific.com
 Designed by Magnific
 
 ### Colours
 
 <img width="26" height="26" alt="image" src="https://github.com/user-attachments/assets/a9d348dc-b1a8-4d9f-a8fa-02980ff81a55" />
+
 hex #87CEFA is used for clear water in the grid 
 
 <img width="23" height="23" alt="image" src="https://github.com/user-attachments/assets/20467b1e-2bde-4b03-9b1e-6a58d0e2dfbd" />
+
 hex #808080 is used for ships that occupy a square on the grid  
 
 <img width="24" height="24" alt="image" src="https://github.com/user-attachments/assets/c75cf5eb-69ff-4308-8cc6-9d6ce7eec1e0" />
+
 hex #FFFFFF is used for a miss on the grid 
 
 <img width="24" height="26" alt="image" src="https://github.com/user-attachments/assets/0dc08a83-76fc-4ba9-a39f-0d712b612f4b" />
+
 hex #FF0000 is used for a ship hit on the grid 
 
 ## Development
@@ -195,6 +201,65 @@ next i created the battle page. Two separate grids were displayed on the page, o
 Once the single-player mode was complete, support for two-player mode was added. This required additional development work, many of the original functions for the placement and battle pages were changed to include an if statment for if its 2 player mode, createing a javascript file for the title and changing the buttons to javascript buttons so each can store the respective mode the player chose, and creating a swap page that hides the game boards while the device is passed between players. Local Storage was used extensively to save each player's board and to keep track of whose turn it is. The battle page was also adapted so that it could dynamically load the correct boards depending on the active player.
 
 Throughout development, i conducted regular testing by simply testing all new features worked and playing games with family to see if the game was easy to play and undertand by others. i used Browser developer tools and console logging to identify and resolve issues such as boards not being saved correctly, turn management problems, and functions not loading the correct data. i also tested the website on different screen sizes to ensure that the responsive layouts functioned correctly on desktop, tablet, and mobile devices.
+
+###features
+
+<img width="1309" height="615" alt="image" src="https://github.com/user-attachments/assets/75de2e2c-2a05-4fac-be02-3106e871a022" />
+
+The title page acts as the main menu of the Battleships game its purpose is to clearly introduce the game and provide simple navigation to the different game modes. The page contains two buttons: 1 Player and 2 Player
+
+The 1 Player button allows the user to start a game against the computer. When pressed, JavaScript stores the value "1p" in Local Storage in the variable gameMode. This information is later used by the placement and battle pages to determine that the game should generate an enemy board controlled by the computer.
+
+The 2 Player button starts a local multiplayer game. When selected, JavaScript stores the value "2p" in Local Storage and also sets currentPlayer to "1". This ensures that the game knows Player 1 should place their ships first and allows the game to switch correctly between players during gameplay.
+
+JavaScript Functionality
+The JavaScript on the title page is responsible for handling the button presses and storing information that will be needed by the rest of the website. It uses event listeners that are attachged to each button, and localStorage to store the needed varables.
+
+<img width="288" height="529" alt="image" src="https://github.com/user-attachments/assets/978b8df6-980d-4d87-98bf-93b202bd2e6a" />
+
+<img width="370" height="501" alt="image" src="https://github.com/user-attachments/assets/21c93b17-0e88-49d9-a54b-4feec0232dc8" />
+
+on diffrent screen sizes the size of the buttons ajust so that they are easy to see and use
+
+<img width="1300" height="602" alt="image" src="https://github.com/user-attachments/assets/723aafd9-776d-4089-b9cc-dd63f4aec5b1" />
+
+The placement page allows players to position their fleet before the battle begins. The page contains a single 10×10 game grid, text describing the current ship being placed, the placement direction, and the number of ships already positioned. Below the game board are controls that allow the player to rotate ships between horizontal and vertical orientations before placing them.
+
+When a player clicks a square on the grid, JavaScript checks whether the selected ship can be placed in that location. The placement is only accepted if the ship remains within the boundaries of the board and does not overlap any ships that have already been placed. Once successfully placed, the ship is indicated by the squares it occupies being gray, the ship counter is updated, and the next ship becomes available for placement.
+
+The Rotate Ship button allows the player to change the orientation of the current ship between horizontal and vertical. this allowas for more placement options and making this more simmilar to the real game
+
+The Start Battle button remains disabled until every ship has been successfully placed. Once all five ships have been positioned, the button becomes available, preventing players from accidentally starting the game with an incomplete fleet.
+
+Single Player Functionality
+
+In single-player mode, the placement page is also responsible for creating the computer's fleet. After the player has positioned all of their ships and starts the game, JavaScript randomly generates valid locations for each of the computer's ships using the same placement validation rules as the player. This ensures that every game is different while preventing ships from overlapping or extending outside the board.
+
+The player's board and the randomly generated enemy board are then saved using Local Storage before the game moves to the battle page.
+
+Two Player Functionality
+
+When two-player mode is selected, the placement page is used twice. Player 1 first places their fleet, after which their board is saved to Local Storage. The game then displays the swap page so the device can safely be passed to Player 2.
+
+Player 2 then places their fleet using the same placement system. Once both players have positioned all of their ships, each board is stored separately in Local Storage and the game proceeds to the battle phase.
+
+JavaScript Functionality
+
+The JavaScript on the placement page controls every aspect of the ship placement system. A two-dimensional 10×10 array is used to represent the game board, with each value storing the state of an individual square. Functions are used to validate placements, ensuring ships do not overlap or extend beyond the edges of the board before allowing them to be placed.
+
+Event listeners are attached to every square within the game board so that clicking a square attempts to place the current ship. Additional event listeners control the Rotate Ship and Start Battle buttons. After every successful placement, the board is redrawn to display the ships, and the information panel is updated to show the next ship that must be placed.
+
+Once all ships have been positioned, the appropriate boards are saved to Local Storage depending on the selected game mode. In single-player mode, both the player's board and the computer's board are stored. In two-player mode, the player's board is saved as either Player 1 or Player 2 before the game progresses to the next stage. Using Local Storage allows the game data to persist between pages without requiring a database or server, enabling the battle page to load the correct fleet layouts when gameplay begins.
+
+<img width="296" height="526" alt="image" src="https://github.com/user-attachments/assets/56c1661b-4b78-4ea2-bbd0-e7578f5d3756" />
+
+<img width="373" height="498" alt="image" src="https://github.com/user-attachments/assets/79de03b7-abe6-4b53-8900-ea82a9318e10" />
+
+the positioning and sizeing is adjusted on other screen sizes 
+
+
+
+
 
 
 
