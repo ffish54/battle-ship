@@ -275,6 +275,39 @@ An event listener is attached to the Continue button. When the button is clicked
 
 the size of the text and button is adjusted in diffrent screen sizes so it is easier to view 
 
+<img width="1279" height="628" alt="image" src="https://github.com/user-attachments/assets/2a1c8c35-1910-4de8-b773-2ca893f9f926" />
+
+The battle page is the main gameplay screen where players attempt to locate and destroy their opponent's fleet. The page is divided into two sections, each containing a 10×10 game board. The board on the left displays the player's own fleet, while the board on the right represents the opponent's waters. Above each board is a heading identifying which board belongs to the player and which belongs to the opponent. The player's board displays the locations of their ships along with any successful enemy attacks and missed shots. 
+
+The enemy board initially appears completely empty, hiding the locations of the opponent's ships. As the player attacks squares on the enemy board, the board updates to display successful hits and missed attacks. This allows players to keep track of every shot they have taken without revealing the locations of ships that have not yet been discovered.
+
+At the bottom of the page is the Battle Status section. This displays messages informing the player about the current state of the game, such as prompting the player to select a square to attack, reporting whether an attack was a hit or a miss, and announcing the winner when all of one player's ships have been destroyed.
+
+Single Player Functionality
+
+In single-player mode, the player attacks by selecting a square on the enemy board. After the player's attack has been processed, the computer automatically takes its turn by randomly selecting a valid square on the player's board that has not been attacked already. The battle continues with players taking alternating turns until one fleet has been completely destroyed.
+
+Two Player Functionality
+
+In two-player mode, both players share the same device. After a player completes their attack, the current game state is saved using Local Storage before the game loads the swap page. Once the device has been passed to the other player and the player clicks continue, the battle page reloads using the correct boards for the next player. This ensures that each player can only view their own fleet while continuing to attack their opponent's hidden board.
+
+JavaScript Functionality
+
+The JavaScript controlling the battle page is responsible for loading the correct boards, processing attacks, updating the game display, managing turns, and determining when the game has ended.
+
+When the page loads, JavaScript first checks the selected game mode stored in Local Storage. Depending on whether the player selected one-player or two-player mode, the appropriate player and enemy boards are loaded into memory. Functions are then used to draw both game boards, displaying the player's ships while only showing hits and misses on the enemy board.
+
+Event listeners are attached to every square of the enemy board. When a player selects a square, JavaScript checks whether that location has already been attacked. If not, the square is updated to record either a hit or a miss before the display is refreshed.
+
+In single-player mode, a computer attack function is called after the player's turn. This function repeatedly generates random coordinates until it finds a square that has not previously been attacked before updating the player's board with the result.
+
+After every successful attack, a function counts the number of remaining ship sections on both boards. If either board no longer contains any remaining ships, the game ends and a victory or defeat message is displayed in the Battle Status section. Throughout the game, Local Storage is continually updated to preserve the current state of both boards, allowing gameplay to continue correctly between turns in both single-player and two-player modes.
+
+<img width="396" height="533" alt="image" src="https://github.com/user-attachments/assets/5c7aaac9-5a4e-4569-aef5-d9a584a6bc6d" />
+
+<img width="312" height="558" alt="image" src="https://github.com/user-attachments/assets/54d32e7f-d0b9-4d58-af7d-a2dc2c1497a0" />
+
+on smaller screens both grids are stacked virticaly as the normal layout wouldnt fit the screen size, this allows the player to scroll the screen virticaly which comes much more naturaly to mobile users than scrolling horozontaly 
 
 
 
