@@ -227,27 +227,23 @@ The placement page allows players to position their fleet before the battle begi
 
 When a player clicks a square on the grid, JavaScript checks whether the selected ship can be placed in that location. The placement is only accepted if the ship remains within the boundaries of the board and does not overlap any ships that have already been placed. Once successfully placed, the ship is indicated by the squares it occupies being gray, the ship counter is updated, and the next ship becomes available for placement.
 
-The Rotate Ship button allows the player to change the orientation of the current ship between horizontal and vertical. this allowas for more placement options and making this more simmilar to the real game
+The Rotate Ship button allows the player to change the orientation of the current ship between horizontal and vertical. this allows for more placement options and making this more simmilar to the real game. 
 
 The Start Battle button remains disabled until every ship has been successfully placed. Once all five ships have been positioned, the button becomes available, preventing players from accidentally starting the game with an incomplete fleet.
 
 Single Player Functionality
 
-In single-player mode, the placement page is also responsible for creating the computer's fleet. After the player has positioned all of their ships and starts the game, JavaScript randomly generates valid locations for each of the computer's ships using the same placement validation rules as the player. This ensures that every game is different while preventing ships from overlapping or extending outside the board.
-
-The player's board and the randomly generated enemy board are then saved using Local Storage before the game moves to the battle page.
+In single-player mode, the placement page is also responsible for creating the computer's fleet. After the player has positioned all of their ships and starts the game, JavaScript randomly generates valid locations for each of the computer's ships using the same placement validation function as the player. This ensures that every game is different while preventing ships from overlapping or extending outside the board. The player's board and the randomly generated enemy board are then saved using Local Storage before the game moves to the battle page.
 
 Two Player Functionality
 
-When two-player mode is selected, the placement page is used twice. Player 1 first places their fleet, after which their board is saved to Local Storage. The game then displays the swap page so the device can safely be passed to Player 2.
-
-Player 2 then places their fleet using the same placement system. Once both players have positioned all of their ships, each board is stored separately in Local Storage and the game proceeds to the battle phase.
+When two-player mode is selected, the placement page is used twice. Player 1 first places their fleet, after which their board is saved to Local Storage. The game then displays the swap page so the device can be passed to Player 2 without spoiling the game. Player 2 then places their fleet using the same placement system. Once both players have positioned all of their ships, each board is stored separately in Local Storage and the game proceeds to the battle phase.
 
 JavaScript Functionality
 
-The JavaScript on the placement page controls every aspect of the ship placement system. A two-dimensional 10×10 array is used to represent the game board, with each value storing the state of an individual square. Functions are used to validate placements, ensuring ships do not overlap or extend beyond the edges of the board before allowing them to be placed.
+The JavaScript on the placement page controls every aspect of the ship placement system. A 10×10 array is used to represent the game board, with each value storing the state of an individual square on the grid. Functions are used to validate placements, ensuring ships do not overlap or extend beyond the edges of the board before allowing them to be placed.
 
-Event listeners are attached to every square within the game board so that clicking a square attempts to place the current ship. Additional event listeners control the Rotate Ship and Start Battle buttons. After every successful placement, the board is redrawn to display the ships, and the information panel is updated to show the next ship that must be placed.
+Event listeners are attached to every square within the game board so that clicking a square starts the ship place function. Additional event listeners control the Rotate Ship and Start Battle buttons. After every successful placement, the board is redrawn to display the ships, and the information panel is updated to show the next ship that must be placed.
 
 Once all ships have been positioned, the appropriate boards are saved to Local Storage depending on the selected game mode. In single-player mode, both the player's board and the computer's board are stored. In two-player mode, the player's board is saved as either Player 1 or Player 2 before the game progresses to the next stage. Using Local Storage allows the game data to persist between pages without requiring a database or server, enabling the battle page to load the correct fleet layouts when gameplay begins.
 
@@ -256,6 +252,31 @@ Once all ships have been positioned, the appropriate boards are saved to Local S
 <img width="373" height="498" alt="image" src="https://github.com/user-attachments/assets/79de03b7-abe6-4b53-8900-ea82a9318e10" />
 
 the positioning and sizeing is adjusted on other screen sizes 
+
+<img width="1289" height="602" alt="image" src="https://github.com/user-attachments/assets/25821299-e3a8-4ec5-89d3-7e8150ed7cfc" />
+
+The swap page is used exclusively during two-player mode and acts as a transition screen between players' turns. Its purpose is to ensure that neither player can see the other's ship positions while the device is being passed between them.
+
+The page features a simple layout consisting of a heading displaying whose turn it is, a small text box asking the current player to pass the device to the next player, and a Continue button. The current player's number is displayed, for example "Player 1's Turn" or "Player 2's Turn", allowing players to clearly see whose turn is about to begin.
+
+When the Continue button is pressed, the game loads the next stage based on the current phase of the game. During the placement stage, the next player is taken to the placement page to position their fleet. During the battle stage, the next player is taken to the battle page to continue the game.
+
+JavaScript Functionality
+
+The JavaScript for the swap page is responsible for determining which player is about to take their turn and which page should be loaded when the player presses Continue.
+
+When the page loads, the script retrieves the values stored in Local Storage, including the current player and the current game phase. These values are used to update the heading displayed on the page so that the correct player's turn is shown.
+
+An event listener is attached to the Continue button. When the button is clicked, JavaScript checks the value of the stored game phase. If the phase is set to placement, the player is redirected to the placement page so they can position their ships. If the phase is set to battle, the player is redirected to the battle page to continue attacking the opposing fleet.
+
+<img width="369" height="493" alt="image" src="https://github.com/user-attachments/assets/bbca0690-159c-4b7b-b563-a3bc125e492f" />
+
+<img width="293" height="526" alt="image" src="https://github.com/user-attachments/assets/1c9d52e2-c788-44b7-a905-644603048463" />
+
+the size of the text and button is adjusted in diffrent screen sizes so it is easier to view 
+
+
+
 
 
 
