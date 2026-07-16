@@ -127,13 +127,19 @@ footer{
     background-size: cover;
     background-position: center;
     background-color: rgba(255, 255, 255, 0.4);
-    background-blend-mode: lighten;
+    background-blend-mode: lighten; 
+  
 }
+
+ header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
 
 #battle-container {
     padding-top: 150px;
-    min-height: 100vh;
-
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -141,8 +147,7 @@ footer{
 
 #game-info {
     text-align: center;
-    margin-top: 20px;
-    padding-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 
