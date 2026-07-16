@@ -327,7 +327,9 @@ Jscript: no errors were found when using jshint
 | 9         | Start a two-player game and complete Player 1's ship placement.      | The swap page is displayed so Player 2 can take over without seeing Player 1's board.                                                       | The swap page appears and prompts the players to swap turns.                                           | Pass      |
 | 10        | Complete a two-player battle, alternating turns using the swap page. | Each player's board is loaded correctly after every swap and gameplay continues until a winner is declared.                                 | Boards are swapped correctly between players and the game ends with the correct winner.                | Pass      |
 
+##Deployment 
 
+to deploy this website I developed it in visual studio code, then linked it to a my repository in github opened the pages tab for the battle ship repository, and clicked deploy from branch.
 
 
 
