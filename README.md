@@ -202,7 +202,7 @@ Once the single-player mode was complete, support for two-player mode was added.
 
 Throughout development, I conducted regular testing by simply testing all new features worked and playing games with family to see if the game was easy to play and understand by others. I used Browser developer tools and console logging to identify and resolve issues such as boards not being saved correctly, turn management problems, and functions not loading the correct data. I also tested the website on different screen sizes to ensure that the responsive layouts functioned correctly on desktop, tablet, and mobile devices.
 
-###features
+### features
 
 <img width="1309" height="615" alt="image" src="https://github.com/user-attachments/assets/75de2e2c-2a05-4fac-be02-3106e871a022" />
 
@@ -309,7 +309,7 @@ After every successful attack, a function counts the number of remaining ship se
 
 on smaller screens both grids are stacked vertically as the normal layout wouldn't fit the screen size, this allows the player to scroll the screen vertically which comes much more naturaly to mobile users than scrolling horizontally 
 
-##Validator Testing
+## Validator Testing
 HTML: No errors were found when using the official W3C validator on each page
 CSS: No errors were found when using the official (Jigsaw) validator 
 Jscript: no errors were found when using jshint
@@ -327,7 +327,7 @@ Jscript: no errors were found when using jshint
 | 9         | Start a two-player game and complete Player 1's ship placement.      | The swap page is displayed so Player 2 can take over without seeing Player 1's board.                                                       | The swap page appears and prompts the players to swap turns.                                           | Pass      |
 | 10        | Complete a two-player battle, alternating turns using the swap page. | Each player's board is loaded correctly after every swap and gameplay continues until a winner is declared.                                 | Boards are swapped correctly between players and the game ends with the correct winner.                | Pass      |
 
-##Deployment 
+## Deployment 
 
 to deploy this website I developed it in visual studio code, then linked it to a my repository in github opened the pages tab for the battle ship repository, and clicked deploy from branch.
 
