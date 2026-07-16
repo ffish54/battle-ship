@@ -309,6 +309,25 @@ After every successful attack, a function counts the number of remaining ship se
 
 on smaller screens both grids are stacked virticaly as the normal layout wouldnt fit the screen size, this allows the player to scroll the screen virticaly which comes much more naturaly to mobile users than scrolling horozontaly 
 
+##Validator Testing
+HTML: No errors were found when using the official W3C validator on each page
+CSS: No errors were found when using the official (Jigsaw) validator 
+Jscript: no errors were found when using jshint
+
+| Story No. | Action                                                               | Expected Result                                                                                                                             | Actual Result                                                                                          | Pass/Fail |
+| --------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------- |
+| 1         | Open the website and click **1 Player**                              | The placement page loads and the game is set to single-player mode.                                                                         | The placement page loads and the computer game mode is selected.                                       | Pass      |
+| 2         | Open the website and click **2 Player**                              | The placement page loads and Player 1 begins placing their ships.                                                                           | The placement page loads with Player 1's placement screen.                                             | Pass      |
+| 3         | Place all five ships on the placement page.                          | Each ship is placed correctly without overlapping or leaving the board. The Start Battle button becomes enabled after all ships are placed. | Ships are placed correctly and the Start Battle button is enabled once all ships have been positioned. | Pass      |
+| 4         | Attempt to place a ship outside the board or on top of another ship. | The placement is rejected and the player is prompted to choose another location.                                                            | Invalid ship placements are prevented and an error message is displayed.                               | Pass      |
+| 5         | Start a single-player game.                                          | The player's fleet is saved and a random enemy fleet is generated before loading the battle page.                                           | The battle page loads with the player's ships displayed and an enemy fleet generated.                  | Pass      |
+| 6         | Click a square on the enemy board during battle.                     | The selected square is marked as either a hit or a miss depending on whether a ship occupies that square.                                   | The attacked square updates correctly to display a hit or miss.                                        | Pass      |
+| 7         | Continue playing until all enemy ships have been destroyed.          | A victory message is displayed and the game ends.                                                                                           | The game correctly detects all enemy ships have been sunk and displays a victory message.              | Pass      |
+| 8         | Allow the computer to take its turn in single-player mode.           | The computer randomly attacks a valid square that has not previously been targeted.                                                         | The computer attacks a random untargeted square and updates the player's board correctly.              | Pass      |
+| 9         | Start a two-player game and complete Player 1's ship placement.      | The swap page is displayed so Player 2 can take over without seeing Player 1's board.                                                       | The swap page appears and prompts the players to swap turns.                                           | Pass      |
+| 10        | Complete a two-player battle, alternating turns using the swap page. | Each player's board is loaded correctly after every swap and gameplay continues until a winner is declared.                                 | Boards are swapped correctly between players and the game ends with the correct winner.                | Pass      |
+
+
 
 
 
