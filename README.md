@@ -120,14 +120,14 @@ Tasks:
 
 ### Design Choices
 
-I am planning to use a naval warfare theme throughout the website. The colour scheme will primarily use shades of blue, grey and white to represent the ocean, military vessels and naval equipment. Background images featuring a few battleships in ocean environments.
+I am planning to use a naval warfare theme throughout the website. The color scheme will primarily use shades of blue, grey and white to represent the ocean, military vessels and naval equipment. Background images featuring a few battleships in ocean environments.
 
 The homepage will feature a title screen with large buttons for Single Player, Two Player and Rules. This design allows players to quickly access the most important areas of the website. Bootstrap will be used to help create a responsive layout that works well on desktop and mobile devices.
 
-The overall design aims to feel similar to a naval command centre, with clear navigation, bold headings and easy-to-read interfaces. The focus of the design is to ensure players can quickly understand the game and begin playing with minimal confusion.
+The overall design aims to feel similar to a naval command center, with clear navigation, bold headings and easy-to-read interfaces. The focus of the design is to ensure players can quickly understand the game and begin playing with minimal confusion.
 
 ### Wireframes 
-wireframes are attatched to this read me file
+wireframes are attached to this read me file
 
 <img width="1087" height="700" alt="wireframe_ship" src="https://github.com/user-attachments/assets/9316c1a8-0be0-464a-9612-6db0c4c6a2db" />
 
@@ -148,21 +148,21 @@ The mobile version of the title screen is redesigned to make better use of the l
 
 <img width="1320" height="1192" alt="placement_desktop" src="https://github.com/user-attachments/assets/d5964bae-0abd-4464-aeda-145dc1c2701b" />
 
-The desktop version of the placement screen will allow the player to arrange their fleet of ships before the battle begins. At the top of the page is a header containing the Battleships logo and title, providing a consistent design throughout the website. Beneath the header is information displaying the current ship to be placed, the ship's size, the current placement direction (horizontal or vertical), and the number of ships already placed. The centre of the page contains a 10 × 10 grid where the player positions each ship by selecting squares on the board. At the bottom of the page are controls that allow the player to rotate the ship between horizontal and vertical placement or continue to the battle once all ships have been placed. In the single-player mode, the enemy fleet is generated automatically when the player starts the battle, while in two-player mode the next player is prompted to take their turn placing ships.
+The desktop version of the placement screen will allow the player to arrange their fleet of ships before the battle begins. At the top of the page is a header containing the Battleships logo and title, providing a consistent design throughout the website. Beneath the header is information displaying the current ship to be placed, the ship's size, the current placement direction (horizontal or vertical), and the number of ships already placed. The center of the page contains a 10 × 10 grid where the player positions each ship by selecting squares on the board. At the bottom of the page are controls that allow the player to rotate the ship between horizontal and vertical placement or continue to the battle once all ships have been placed. In the single-player mode, the enemy fleet is generated automatically when the player starts the battle, while in two-player mode the next player is prompted to take their turn placing ships.
 
 <img width="1402" height="1122" alt="placement_mobile" src="https://github.com/user-attachments/assets/e308474d-884c-44d9-af29-ed8f5181fc0e" />
 
 On tablet devices, the placement screen keeps the same overall layout while scaling the interface to suit the smaller display. The information section remains above the board, while the grid is slightly reduced in size to fit comfortably on the screen. The control buttons remain below the grid and are resized to make them easy to press using touch controls without changing their functionality.
-The mobile version of the placement screen is adjusted for the limited screen space. The buttons arestacked vertically below the. The grid is reduced in size while remaining fully usable on a touch screen. The page becomes vertically scrollable if required, ensuring all controls remain accessible without making the board too small to use.
+The mobile version of the placement screen is adjusted for the limited screen space. The buttons are stacked vertically below the. The grid is reduced in size while remaining fully usable on a touch screen. The page becomes vertically scrollable if required, ensuring all controls remain accessible without making the board too small to use.
 
 
 <img width="1448" height="1086" alt="3891C936-4988-4034-AC26-ED33F74EABD9" src="https://github.com/user-attachments/assets/f2766d1a-34ad-4548-bb90-9ccc4cb6989d" />
 
-The swap page is designed to prevent the next player from seeing the previous player’s board during a two-player game. At the top of the page is the Battleships header used on other pages. In the centre of the page is a large heading displaying whose turn it is, for example, “Player 1’s Turn” or “Player 2’s Turn”. Beneath this is a short message instructing the players to pass the device to the next player, followed by another reminder to make sure the other player is not looking at the screen before continuing. At the bottom of the page is a Continue button. When pressed, this button will load the next placement page for player 2 then will switch between each players battle page. this page is the same on each platform but the button is slightly bigger on smaller screens 
+The swap page is designed to prevent the next player from seeing the previous player’s board during a two-player game. At the top of the page is the Battleships header used on other pages. In the center of the page is a large heading displaying whose turn it is, for example, “Player 1’s Turn” or “Player 2’s Turn”. Beneath this is a short message instructing the players to pass the device to the next player, followed by another reminder to make sure the other player is not looking at the screen before continuing. At the bottom of the page is a Continue button. When pressed, this button will load the next placement page for player 2 then will switch between each players battle page. this page is the same on each platform but the button is slightly bigger on smaller screens 
 
 <img width="1448" height="1086" alt="C94201AC-DA72-4402-BD9F-A34A7B1E1390" src="https://github.com/user-attachments/assets/69f7e1fb-0d57-408d-b777-5f6ae55b2dc9" />
 
-the battle page is made up of two grids the current players grid (left) and the enemy's grid (right) with lables above each grid on the players grid their ships are displayed along with any hits and misses by the enemy and the oposite grid only contains any hits and misses, below is some text that displays instructions and says if the attack was a hit or miss.
+the battle page is made up of two grids the current players grid (left) and the enemy's grid (right) with labels above each grid on the players grid their ships are displayed along with any hits and misses by the enemy and the opposite grid only contains any hits and misses, below is some text that displays instructions and says if the attack was a hit or miss.
 At the bottom of the page is a Battle Status section. This area displays messages informing the player about the current state of the game, such as "Select a square on the enemy grid to attack", "Direct Hit!", "Miss!", or announcing the winner when all of one player's ships have been destroyed
 
 ### Background
@@ -192,15 +192,15 @@ hex #FF0000 is used for a ship hit on the grid
 
 ## Development
 
-The first page I developed was the title screen, with navigation options for either the one-player or two-player mode. next i started on the the ship placement page. to do this i created a 10x10 grid with in the javascript through a table most java script for this page is in script.js. then i developed the functions to allow players to place ships on the grid, rotate them between horizontal and vertical positions, validate ship placements, and prevent ships from overlapping or extending beyond the boundaries of the board.
+The first page I developed was the title screen, with navigation options for either the one-player or two-player mode. next I started on the the ship placement page. to do this I created a 10x10 grid with in the javascript through a table most java script for this page is in script.js. then I developed the functions to allow players to place ships on the grid, rotate them between horizontal and vertical positions, validate ship placements, and prevent ships from overlapping or extending beyond the boundaries of the board.
 
-After the placement functions were working correctly, i created a function to generate a random fleet for the computer opponent in one-player mode useing another 10x10 table. The positions of both the player's and the enemy's ships were stored using Local Storage, allowing the information to be transfered between pages when the game moved from the placement screen to the battle screen.
+After the placement functions were working correctly, I created a function to generate a random fleet for the computer opponent in one-player mode using another 10x10 table. The positions of both the player's and the enemy's ships were stored using Local Storage, allowing the information to be transferred between pages when the game moved from the placement screen to the battle screen.
 
-next i created the battle page. Two separate grids were displayed on the page, one for the player's fleet and one for the enemy's waters and JavaScript functions were created to handle attacking mechanics, including checking whether an attack was a hit or a miss, updating the boards visually, and preventing players from selecting the same square multiple times this is done by storing an intiger in each section of the grid table 0 would be clear, 1 meant it contained a ship, 2 if a ship was hit or 3 if it is a miss. For one-player mode, a computer opponent was implemented that randomly selects a valid square to attack after the player has taken their turn.
+next I created the battle page. Two separate grids were displayed on the page, one for the player's fleet and one for the enemy's waters and JavaScript functions were created to handle attacking mechanics, including checking whether an attack was a hit or a miss, updating the boards visually, and preventing players from selecting the same square multiple times this is done by storing an integer in each section of the grid table 0 would be clear, 1 meant it contained a ship, 2 if a ship was hit or 3 if it is a miss. For one-player mode, a computer opponent was implemented that randomly selects a valid square to attack after the player has taken their turn.
 
-Once the single-player mode was complete, support for two-player mode was added. This required additional development work, many of the original functions for the placement and battle pages were changed to include an if statment for if its 2 player mode, createing a javascript file for the title and changing the buttons to javascript buttons so each can store the respective mode the player chose, and creating a swap page that hides the game boards while the device is passed between players. Local Storage was used extensively to save each player's board and to keep track of whose turn it is. The battle page was also adapted so that it could dynamically load the correct boards depending on the active player.
+Once the single-player mode was complete, support for two-player mode was added. This required additional development work, many of the original functions for the placement and battle pages were changed to include an if statement for if its 2 player mode, creating a javascript file for the title and changing the buttons to javascript buttons so each can store the respective mode the player chose, and creating a swap page that hides the game boards while the device is passed between players. Local Storage was used extensively to save each player's board and to keep track of whose turn it is. The battle page was also adapted so that it could dynamically load the correct boards depending on the active player.
 
-Throughout development, i conducted regular testing by simply testing all new features worked and playing games with family to see if the game was easy to play and undertand by others. i used Browser developer tools and console logging to identify and resolve issues such as boards not being saved correctly, turn management problems, and functions not loading the correct data. i also tested the website on different screen sizes to ensure that the responsive layouts functioned correctly on desktop, tablet, and mobile devices.
+Throughout development, I conducted regular testing by simply testing all new features worked and playing games with family to see if the game was easy to play and understand by others. I used Browser developer tools and console logging to identify and resolve issues such as boards not being saved correctly, turn management problems, and functions not loading the correct data. I also tested the website on different screen sizes to ensure that the responsive layouts functioned correctly on desktop, tablet, and mobile devices.
 
 ###features
 
@@ -213,13 +213,13 @@ The 1 Player button allows the user to start a game against the computer. When p
 The 2 Player button starts a local multiplayer game. When selected, JavaScript stores the value "2p" in Local Storage and also sets currentPlayer to "1". This ensures that the game knows Player 1 should place their ships first and allows the game to switch correctly between players during gameplay.
 
 JavaScript Functionality
-The JavaScript on the title page is responsible for handling the button presses and storing information that will be needed by the rest of the website. It uses event listeners that are attachged to each button, and localStorage to store the needed varables.
+The JavaScript on the title page is responsible for handling the button presses and storing information that will be needed by the rest of the website. It uses event listeners that are attachged to each button, and localStorage to store the needed variables.
 
 <img width="288" height="529" alt="image" src="https://github.com/user-attachments/assets/978b8df6-980d-4d87-98bf-93b202bd2e6a" />
 
 <img width="370" height="501" alt="image" src="https://github.com/user-attachments/assets/21c93b17-0e88-49d9-a54b-4feec0232dc8" />
 
-on diffrent screen sizes the size of the buttons ajust so that they are easy to see and use
+on different screen sizes the size of the buttons adjust so that they are easy to see and use
 
 <img width="1300" height="602" alt="image" src="https://github.com/user-attachments/assets/723aafd9-776d-4089-b9cc-dd63f4aec5b1" />
 
@@ -251,7 +251,7 @@ Once all ships have been positioned, the appropriate boards are saved to Local S
 
 <img width="373" height="498" alt="image" src="https://github.com/user-attachments/assets/79de03b7-abe6-4b53-8900-ea82a9318e10" />
 
-the positioning and sizeing is adjusted on other screen sizes 
+the positioning and sizing is adjusted on other screen sizes 
 
 <img width="1289" height="602" alt="image" src="https://github.com/user-attachments/assets/25821299-e3a8-4ec5-89d3-7e8150ed7cfc" />
 
@@ -273,7 +273,7 @@ An event listener is attached to the Continue button. When the button is clicked
 
 <img width="293" height="526" alt="image" src="https://github.com/user-attachments/assets/1c9d52e2-c788-44b7-a905-644603048463" />
 
-the size of the text and button is adjusted in diffrent screen sizes so it is easier to view 
+the size of the text and button is adjusted in different screen sizes so it is easier to view 
 
 <img width="1279" height="628" alt="image" src="https://github.com/user-attachments/assets/2a1c8c35-1910-4de8-b773-2ca893f9f926" />
 
@@ -307,7 +307,7 @@ After every successful attack, a function counts the number of remaining ship se
 
 <img width="312" height="558" alt="image" src="https://github.com/user-attachments/assets/54d32e7f-d0b9-4d58-af7d-a2dc2c1497a0" />
 
-on smaller screens both grids are stacked virticaly as the normal layout wouldnt fit the screen size, this allows the player to scroll the screen virticaly which comes much more naturaly to mobile users than scrolling horozontaly 
+on smaller screens both grids are stacked vertically as the normal layout wouldn't fit the screen size, this allows the player to scroll the screen vertically which comes much more naturaly to mobile users than scrolling horizontally 
 
 ##Validator Testing
 HTML: No errors were found when using the official W3C validator on each page
